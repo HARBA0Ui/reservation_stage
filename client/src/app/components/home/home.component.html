@@ -1,0 +1,44 @@
+<!-- Banner Section -->
+<section
+  class="banner d-flex align-items-center justify-content-center text-center text-white"
+  style="
+    background-image: url('salle.jpg');
+    height: 400px;
+    background-size: cover;
+  "
+>
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+  <div class="detail position-relative z-2">
+    <h1>Centre National des Sciences et Technologies Nucléaires</h1>  
+    <p>Reservez votre salle</p>
+    <button class="btn btn-light" routerLink="/reservation">
+      Make a Reservation
+    </button>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="about-us py-5 bg-light">
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="col-md-4 d-flex">
+        <img
+          src="salle2.jpg"
+          class="img-fluid"
+          alt="About Us"
+          style="object-fit: cover"
+        />
+      </div>
+      <div class="col-md-6">
+        <h2>About Us</h2>
+        <p>
+          We offer a platform where you can make reservations for conferences,
+          meetings, and more. Our platform ensures that your reservations are
+          simple, fast, and secure.
+        </p>
+        <a class="btn btn-primary" routerLink="/contact">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<div
+  class="modal fade show d-block"
+  tabindex="-1"
+  aria-labelledby="modalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalLabel">Réservation Confirmée</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="close()"
+        ></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body text-center">
+        <p>{{ data.message }}</p>
+        <div class="qr-container my-3">
+          <qrcode
+            [qrdata]="data.qrData"
+            [width]="150"
+            [errorCorrectionLevel]="'M'"
+          ></qrcode>
+        </div>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary w-100" (click)="close()">
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

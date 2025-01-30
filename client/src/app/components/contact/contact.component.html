@@ -1,0 +1,67 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+      <mat-card class="contact-card p-4">
+        <mat-card-title class="text-center mb-4">Contactez-nous</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Prénom</mat-label>
+                <input matInput formControlName="prenom" class="form-control" />
+                @if (contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched) {
+                  <mat-error> Prénom est requis. </mat-error>
+                }
+              </mat-form-field>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="nom" class="form-control" />
+                @if (contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched) {
+                  <mat-error> Nom est requis. </mat-error>
+                }
+              </mat-form-field>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Numéro de téléphone</mat-label>
+                <input matInput formControlName="telephone" type="tel" class="form-control" />
+                @if (contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched) {
+                  <mat-error> Numéro de téléphone est requis. </mat-error>
+                }
+              </mat-form-field>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" class="form-control" />
+                @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                  <mat-error> Email valide est requis. </mat-error>
+                }
+              </mat-form-field>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Message</mat-label>
+                <textarea matInput formControlName="message" rows="4" class="form-control"></textarea>
+                @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                  <mat-error> Message est requis. </mat-error>
+                }
+              </mat-form-field>
+            </div>
+  
+            <div class="text-center">
+              <button mat-raised-button color="primary" [disabled]="contactForm.invalid" class="w-50">
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

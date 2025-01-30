@@ -1,0 +1,182 @@
+<div class="container py-5">
+  <h2 class="text-center">Formulaire de Réservation</h2>
+  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <!-- Informations de base -->
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nom"
+        placeholder="Entrez le nom"
+        formControlName="nom"
+      />
+      @if (reservationForm.get('nom')?.touched &&
+      reservationForm.get('nom')?.invalid) {
+      <small class="text-danger">Le nom est obligatoire.</small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="prenom"
+        placeholder="Entrez le prénom"
+        formControlName="prenom"
+      />
+      @if (reservationForm.get('prenom')?.touched &&
+      reservationForm.get('prenom')?.invalid) {
+      <small class="text-danger">Le prénom est obligatoire.</small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="tel" class="form-label">Numéro de téléphone</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="tel"
+        placeholder="Entrez le numéro de téléphone"
+        formControlName="tel"
+      />
+      @if (reservationForm.get('tel')?.touched &&
+      reservationForm.get('tel')?.invalid) {
+      <small class="text-danger">Veuillez entrer un numéro valide.</small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="direction" class="form-label">Direction/Sous Direction</label>
+      <select class="form-control" id="direction" formControlName="direction">
+        <option>choisissez</option>
+        @for(option of directionOptions; track $index){
+        <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Dates -->
+    <div formGroupName="dates" class="row">
+      <div class="col-md-6 mb-3">
+        <label for="datedeb" class="form-label">Date de début</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="datedeb"
+          formControlName="datedeb"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="datefin" class="form-label">Date de fin</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="datefin"
+          formControlName="datefin"
+        />
+      </div>
+    </div>
+
+    <!-- Type d'accès -->
+    <div class="mb-3">
+      <label class="form-label">Type d'accès</label><br />
+      @for ( option of typeAccesOptions; track $index) {
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          [value]="option"
+          formControlName="typeAcces"
+        />
+        <label class="form-check-label">{{ option }}</label>
+      </div>
+      }
+    </div>
+
+    <!-- Matériels demandés -->
+    <div class="mb-3">
+      <label class="form-label">Matériels demandés</label><br />
+      <div formGroupName="materiel">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="videoProjecteur"
+            formControlName="videoProjecteur"
+          />
+          <label class="form-check-label" for="videoProjecteur"
+            >Vidéo Projecteur</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="television"
+            formControlName="television"
+          />
+          <label class="form-check-label" for="television">Télévision</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="tableauInteractif"
+            formControlName="tableauInteractif"
+          />
+          <label class="form-check-label" for="tableauInteractif"
+            >Tableau Interactif</label
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Disposition de la salle -->
+    <div class="mb-3">
+      <label class="form-label">Disposition de la salle</label><br />
+      @for ( option of dispositionOptions; track $index) {
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          [value]="option"
+          formControlName="disposition"
+        />
+        <label class="form-check-label">{{ option }}</label>
+      </div>
+      }
+    </div>
+
+    <!-- Nombre de participants -->
+    <div class="mb-3">
+      <label for="participants" class="form-label"
+        >Nombre de participants</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        id="participants"
+        placeholder="Entrez le nombre de participants"
+        formControlName="participants"
+      />
+    </div>
+
+    <!-- Raison de la réservation -->
+    <div class="mb-3">
+      <label for="raison" class="form-label">Raison de la réservation</label>
+      <textarea
+        class="form-control"
+        id="raison"
+        rows="3"
+        placeholder="Décrivez la raison de la réservation"
+        formControlName="raison"
+      ></textarea>
+    </div>
+
+    <!-- Boutons -->
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="reset" class="btn btn-secondary ms-2">Réinitialiser</button>
+  </form>
+</div>

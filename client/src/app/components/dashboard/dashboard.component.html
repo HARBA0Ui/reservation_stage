@@ -1,0 +1,46 @@
+<div class="container py-5">
+    <h2 class="text-center">Tableau de Bord</h2>
+  
+    <!-- Spinner de chargement -->
+    @if (isLoading) {
+      <div class="d-flex justify-content-center my-4">
+        <mat-spinner color="accent" diameter="30"></mat-spinner>
+      </div>
+    } @else {
+      <table class="table table-bordered mt-4 text-center">
+        <thead class="table-dark">
+          <tr>
+            <th class="align-middle">Nom</th>
+            <th class="align-middle">Prénom</th>
+            <th class="align-middle">Téléphone</th>
+            <th class="align-middle">Direction</th>
+            <th class="align-middle">Date Début</th>
+            <th class="align-middle">Date Fin</th>
+            <th class="align-middle">Type d'Accès</th>
+            <th class="align-middle">Participants</th>
+            <th class="align-middle">Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (reservation of reservations; track $index) {
+            <tr>
+              <td class="align-middle">{{ reservation.nom }}</td>
+              <td class="align-middle">{{ reservation.prenom }}</td>
+              <td class="align-middle">{{ reservation.tel }}</td>
+              <td class="align-middle">{{ reservation.direction }}</td>
+              <td class="align-middle">{{ reservation.datedeb | date: 'short' }}</td>
+              <td class="align-middle">{{ reservation.datefin | date: 'short' }}</td>
+              <td class="align-middle">{{ reservation.typeAcces }}</td>
+              <td class="align-middle">{{ reservation.participants }}</td>
+              <td class="text-center align-middle">
+                <button mat-icon-button color="warn" style="all: unset; background: crimson; color: white; padding: .3rem; padding-top: .5rem; border-radius: 5rem; cursor: pointer;" (click)="deleteReservation(reservation.id)">
+                  <mat-icon>delete</mat-icon>
+                  
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
