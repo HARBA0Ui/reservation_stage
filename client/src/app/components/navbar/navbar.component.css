@@ -14,7 +14,17 @@
 }
 
 .navbar-brand img {
-  height: 40px;
+  width: 80px;
+  height: 80px;
+}
+
+.navbar-brand-text {
+  text-transform: capitalize;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-brand:hover .navbar-brand-text {
+  color: rgb(0, 68, 255);
 }
 
 .navbar-menu {
@@ -22,7 +32,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 20px;
+  gap: 3rem;
 }
 
 .navbar-menu li {
@@ -48,23 +58,35 @@
   cursor: pointer;
 }
 
+
+
+@media (max-width: 1280px) {
+  .navbar-brand-text {
+    display: none; /* Hide the span on smaller screens */
+  }
+}
 @media (max-width: 768px) {
   .navbar-toggler {
     display: block;
   }
 
+
+
   .navbar-menu {
     display: none;
     flex-direction: column;
+    gap: 1rem;
     background: white;
     position: absolute;
-    top: 60px;
+    top: 100%; /* Adjust this value based on your navbar height */
     right: 0;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    padding: 1rem 5rem;
+  
+    z-index: 3;
   }
-
+  
   .navbar-menu.active {
     display: flex;
   }

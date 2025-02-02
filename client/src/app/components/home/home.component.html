@@ -10,10 +10,9 @@
   <!-- Dark Overlay -->
   <div class="overlay"></div>
   <div class="detail position-relative z-2">
-    <h1>Centre National des Sciences et Technologies Nucléaires</h1>  
-    <p>Reservez votre salle</p>
-    <button class="btn btn-light" routerLink="/reservation">
-      Make a Reservation
+    <h1>Centre National des Sciences et Technologies Nucléaires</h1>
+    <button class="btn btn-primary" routerLink="/reservation">
+      Reservez votre salle
     </button>
   </div>
 </section>
@@ -31,13 +30,26 @@
         />
       </div>
       <div class="col-md-6">
-        <h2>About Us</h2>
-        <p>
-          We offer a platform where you can make reservations for conferences,
-          meetings, and more. Our platform ensures that your reservations are
-          simple, fast, and secure.
+        <h2
+          style="text-transform: capitalize; font-size: 40px; font-weight: bold"
+        >
+          à propos
+        </h2>
+        <p style="line-height: 2rem">
+          Le CNSTN travaille sur plusieurs axes, notamment la recherche
+          nucléaire, la radioprotection, l'application des technologies
+          nucléaires dans des domaines variés comme la médecine, l'agriculture,
+          l'environnement et l'industrie. Il joue un rôle essentiel dans le
+          développement et l'application de ces technologies en Tunisie,
+          contribuant ainsi à l'innovation scientifique et à la formation de
+          professionnels dans ces domaines.
         </p>
-        <a class="btn btn-primary" routerLink="/contact">Contact Us</a>
+        <div style="display: flex; gap: 1rem">
+          <a class="btn btn-primary" routerLink="/contact">Contact</a>
+          <a class="btn btn-dark" routerLink="/reservation"
+            >Reservez une salle</a
+          >
+        </div>
       </div>
     </div>
   </div>

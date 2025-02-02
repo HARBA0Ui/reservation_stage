@@ -34,7 +34,7 @@ export const login = async (req, res) => {
       { expiresIn: tokenAge }
     );
 
-    console.log("token: ", token)
+    // console.log("token: ", token)
 
     res
       .cookie("token", token, {
@@ -60,7 +60,7 @@ export const logout = (req, res) => {
 
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
-  console.log("req body: ", req.body);
+  // console.log("req body: ", req.body);
 
   try {
     // Check if the username already exists
@@ -95,7 +95,7 @@ export const register = async (req, res) => {
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.token; // Get the token from cookies
 
-  console.log("Token from cookies:", token);
+  // console.log("Token from cookies:", token);
 
   if (!token) {
     return res.status(401).json({ message: "No token provided!" });
@@ -108,7 +108,7 @@ export const verifyToken = (req, res, next) => {
     }
 
     req.admin = decoded; // Attach decoded token data to the request
-    console.log("Decoded token:", decoded);
+    // console.log("Decoded token:", decoded);
     next();
   });
 };

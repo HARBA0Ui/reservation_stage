@@ -44,13 +44,16 @@ export const createReservation = async (req, res) => {
 
 export const removeReservation = async (req, res) => {
     try {
-        const { id } = req.body; 
+        console.log("test")
+        const { id } = req.params; 
+
+        console.log("id: ", id)
 
         const reservation = await prisma.reservation.delete({
             where: { id }
         });
 
-        res.status(200).json({ message: "Réservation supprimée avec succès", reservation });
+        res.status(200).json({ message: "Réservation supprimée avec succès" });
     } catch (err) {
         console.error("Erreur lors de la suppression :", err);
         res.status(500).json({ message: "Erreur lors de la suppression de la réservation" });
@@ -61,7 +64,7 @@ export const removeReservation = async (req, res) => {
 export const getReservations = async (req, res) => {
     try {
         const reservations = await prisma.reservation.findMany();
-        console.log("reservation: ", reservations)
+        // console.log("reservation: ", reservations)
         res.status(200).json(reservations);
     } catch (err) {
         console.error("Erreur lors de la récupération des réservations :", err);

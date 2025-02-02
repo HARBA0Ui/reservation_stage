@@ -1,9 +1,11 @@
-<app-navbar/>
+<div style="display: flex; flex-direction: column; min-height: 100vh">
+  <app-navbar />
 
-<!-- Main Content (Dynamic routing via router-outlet) -->
-<router-outlet/>
+  <!-- Main Content (Dynamic routing via router-outlet) -->
+  <div style="flex: 1">
+    <router-outlet />
+  </div>
 
-<!-- Footer -->
-<footer class="footer bg-primary text-center py-4 text-white">
-  <p>&copy; 2025 Our Company. All rights reserved.</p>
-</footer>
+  <!-- Footer -->
+  <app-footer/>
+</div>

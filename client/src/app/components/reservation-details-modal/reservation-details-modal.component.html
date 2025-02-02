@@ -1,0 +1,49 @@
+<div style="padding: 1rem">
+  <h2 class="text-center">Détails de la Réservation</h2>
+  <table class="table table-bordered mt-3" >
+    <tr>
+      <th>Nom</th>
+      <td>{{ data.nom }}</td>
+    </tr>
+    <tr>
+      <th>Prénom</th>
+      <td>{{ data.prenom }}</td>
+    </tr>
+    <tr>
+      <th>Téléphone</th>
+      <td>{{ data.tel }}</td>
+    </tr>
+    <tr>
+      <th>Direction</th>
+      <td>{{ data.direction }}</td>
+    </tr>
+    <tr>
+      <th>Date Début</th>
+      <td>{{ data.datedeb | date : "short" }}</td>
+    </tr>
+    <tr>
+      <th>Date Fin</th>
+      <td>{{ data.datefin | date : "short" }}</td>
+    </tr>
+    <tr>
+      <th>Type d'Accès</th>
+      <td>{{ data.typeAcces }}</td>
+    </tr>
+    <tr>
+      <th>Disposition</th>
+      <td>{{ data.disposition }}</td>
+    </tr>
+    <tr>
+      <th>Participants</th>
+      <td>{{ data.participants }}</td>
+    </tr>
+    <tr>
+      <th>Raison</th>
+      <td>{{ data.raison }}</td>
+    </tr>
+  </table>
+
+  <div class="text-center mt-3">
+    <button mat-button class="btn btn-primary" color="primary" (click)="close()">Fermer</button>
+  </div>
+</div>

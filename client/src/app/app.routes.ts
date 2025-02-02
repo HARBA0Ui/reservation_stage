@@ -34,25 +34,7 @@ export const routes: Routes = [
     title: 'contact',
     component: ContactComponent,
   },
-//   {
-//     path: 'dashboard',
-//     title: 'dashboard form',
-//     component: DashboardComponent,
-//     canActivate: [authGuard],
-//     children: [
-//       { path: '', title: 'main dashboard', component: MainDashboardComponent },
-//       {
-//         path: 'create',
-//         title: 'new product',
-//         component: CreateProductComponent,
-//       },
-//       {p
-//         path: 'update/:id',
-//         title: 'update product',
-//         component: UpdateProductComponent,
-//       },
-//     ],
-//   },
+ 
   {
     path: '**',
     redirectTo: '',

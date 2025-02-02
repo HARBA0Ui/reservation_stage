@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container py-5" style="max-width: 1000px;">
   <h2 class="text-center">Formulaire de Réservation</h2>
   <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <!-- Informations de base -->
@@ -10,10 +10,10 @@
         id="nom"
         placeholder="Entrez le nom"
         formControlName="nom"
+        [ngClass]="{ 'is-invalid': reservationForm.get('nom')?.touched && reservationForm.get('nom')?.invalid }"
       />
-      @if (reservationForm.get('nom')?.touched &&
-      reservationForm.get('nom')?.invalid) {
-      <small class="text-danger">Le nom est obligatoire.</small>
+      @if (reservationForm.get('nom')?.touched && reservationForm.get('nom')?.invalid) {
+        <small class="text-danger">Le nom est obligatoire.</small>
       }
     </div>
 
@@ -25,10 +25,10 @@
         id="prenom"
         placeholder="Entrez le prénom"
         formControlName="prenom"
+        [ngClass]="{ 'is-invalid': reservationForm.get('prenom')?.touched && reservationForm.get('prenom')?.invalid }"
       />
-      @if (reservationForm.get('prenom')?.touched &&
-      reservationForm.get('prenom')?.invalid) {
-      <small class="text-danger">Le prénom est obligatoire.</small>
+      @if (reservationForm.get('prenom')?.touched && reservationForm.get('prenom')?.invalid) {
+        <small class="text-danger">Le prénom est obligatoire.</small>
       }
     </div>
 
@@ -40,10 +40,10 @@
         id="tel"
         placeholder="Entrez le numéro de téléphone"
         formControlName="tel"
+        [ngClass]="{ 'is-invalid': reservationForm.get('tel')?.touched && reservationForm.get('tel')?.invalid }"
       />
-      @if (reservationForm.get('tel')?.touched &&
-      reservationForm.get('tel')?.invalid) {
-      <small class="text-danger">Veuillez entrer un numéro valide.</small>
+      @if (reservationForm.get('tel')?.touched && reservationForm.get('tel')?.invalid) {
+        <small class="text-danger">Veuillez entrer un numéro valide.</small>
       }
     </div>
 
@@ -66,6 +66,7 @@
           class="form-control"
           id="datedeb"
           formControlName="datedeb"
+          [ngClass]="{ 'is-invalid': reservationForm.get('dates.datedeb')?.touched && reservationForm.get('dates.datedeb')?.invalid }"
         />
       </div>
       <div class="col-md-6 mb-3">
@@ -75,6 +76,7 @@
           class="form-control"
           id="datefin"
           formControlName="datefin"
+          [ngClass]="{ 'is-invalid': reservationForm.get('dates.datefin')?.touched && reservationForm.get('dates.datefin')?.invalid }"
         />
       </div>
     </div>
@@ -160,6 +162,7 @@
         id="participants"
         placeholder="Entrez le nombre de participants"
         formControlName="participants"
+        [ngClass]="{ 'is-invalid': reservationForm.get('participants')?.touched && reservationForm.get('participants')?.invalid }"
       />
     </div>
 
@@ -176,7 +179,13 @@
     </div>
 
     <!-- Boutons -->
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="reservationForm.invalid"
+    >
+      Envoyer
+    </button>
     <button type="reset" class="btn btn-secondary ms-2">Réinitialiser</button>
   </form>
 </div>

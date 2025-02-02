@@ -9,6 +9,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-contact",
@@ -20,6 +21,7 @@ import { Router } from "@angular/router";
     MatButtonModule,
     MatCardModule,
     MatSnackBarModule,
+    CommonModule
   ],
   styleUrls: ["./contact.component.css"],
 })

@@ -1,16 +1,38 @@
 <nav class="navbar">
-    <div class="navbar-container">
-      <a class="navbar-brand" routerLink="/">
-        <img src="logo.png" alt="Logo" class="logo" />
-      </a>
-      <button class="navbar-toggler" (click)="toggleMenu()">
-        &#9776;
-      </button>
-      <ul class="navbar-menu" [ngClass]="{ 'active': isMenuOpen }">
-        <li><a class="nav-link" routerLink="/">Home</a></li>
-        <li><a class="nav-link" routerLink="/reservation">Reservation</a></li>
-        <li><a class="nav-link" routerLink="/contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  
+  <div class="navbar-container">
+    <a
+      class="navbar-brand"
+      routerLink="/"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 20px;
+      "
+    >
+      <img src="logo.png" alt="Logo" class="logo" />
+      <span class="navbar-brand-text">
+        centre national des sciences et technologies nucléaires
+      </span>
+    </a>
+    <button class="navbar-toggler" (click)="toggleMenu()">&#9776;</button>
+    <ul class="navbar-menu" [ngClass]="{ active: isMenuOpen }">
+      <li>
+        <a class="nav-link" routerLink="/" (click)="toggleMenu()">Acceuil</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/reservation" (click)="toggleMenu()"
+          >Reservation</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/contact" (click)="toggleMenu()"
+          >Contact</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

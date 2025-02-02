@@ -1,8 +1,8 @@
 import express from "express"
-import cors from "cors"
 import authRoute from "./routes/auth.route.js"
 import reservationRoute from "./routes/reservation.route.js"
 import emailRoute from "./routes/email.route.js"
+import cors from "cors"
 
 
 import cookieParser from "cookie-parser"
@@ -23,7 +23,10 @@ app.use("/api/reservations", reservationRoute);
 app.use("/api/email", emailRoute);
 
 // const PORT = process.env.PORT || 80;
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`The server is running at ${PORT}!`)
 })
+
+app.use("/api/reservations", reservationRoute);

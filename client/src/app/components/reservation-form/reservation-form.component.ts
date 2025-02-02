@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationModalComponent } from '../reservation-modal/reservation-modal.component';
 import { ReservationService } from '../../reservation.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reservation-form',
   templateUrl: './reservation-form.component.html',
-  imports: [ReactiveFormsModule],
-  styleUrls: ['./reservation-form.component.css']
+  imports: [ReactiveFormsModule, CommonModule],
+  styleUrls: ['./reservation-form.component.css'],
 })
 export class ReservationFormComponent {
   reservationForm: FormGroup;
@@ -65,15 +71,21 @@ export class ReservationFormComponent {
     }
   }
   formatFormData(data: any): any {
+    const materielMap: Record<string, string> = {
+      videoProjecteur: 'VIDEOPROJECTEUR',
+      television: 'TELEVISION',
+      tableauInteractif: 'TABLEAU_INTERACTIF',
+    };
+
     return {
       ...data,
       datedeb: new Date(data.dates.datedeb).toISOString(),
       datefin: new Date(data.dates.datefin).toISOString(),
       materiels: Object.entries(data.materiel)
-        .filter(([key, value]) => value)
-        .map(([key]) => key.toUpperCase()),  // Ensure values are uppercase and match enum
+        .filter(([_, value]) => value)
+        .map(([key]) => materielMap[key] || key), // Convert keys correctly
     };
-}
+  }
   openDialog(): void {
     if (!this.qrData) {
       console.error('QR Data is missing');
@@ -82,7 +94,8 @@ export class ReservationFormComponent {
 
     this.dialog.open(ReservationModalComponent, {
       data: {
-        message: 'Votre demande de réservation a été créée. Nous vous contacterons pour plus d\'informations!',
+        message:
+          "Votre demande de réservation a été créée. Nous vous contacterons pour plus d'informations!",
         qrData: this.qrData,
       },
     });

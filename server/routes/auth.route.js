@@ -12,11 +12,11 @@ router.post("/login", login);
 router.post("/register", register);
 router.post("/logout", logout);
 
-// route to verify the token
+
 router.get("/verify-token", verifyToken, (req, res) => {
   res.json({
     isAuthenticated: true,
-    admin: req.admin, // Information from the decoded token
+    admin: req.admin, 
   });
 });
 
